@@ -25,7 +25,8 @@ body {
 }
 
 .header__menu {
-	margin-right: 30px;
+  margin-right: 30px; 
+  position: relative;
 }
 
 .header__menu ul {
