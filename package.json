@@ -20,6 +20,8 @@
   "homepage": "https://github.com/ealexisaraujo/platziVideo#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/html": "^5.1.11",
     "babel-loader": "^8.0.6"
   },
