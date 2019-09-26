@@ -1,0 +1,49 @@
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.error {
+  background-image: linear-gradient(#21c08b, #8f57fd);
+  // display: flex;
+  // align-items: center;
+  @extend .flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 30px;
+  min-height: calc(100vh - 200px);
+  /* El ancho será igual al tamaño de todo el height menos 200px (100px del header + 100px del footer) */
+}
+
+.error h1 {
+  animation-name: beat;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  height: 100px;
+  margin: 0px;
+}
+
+@keyframes beat {
+  0% {
+    font-size: 3em;
+  }
+
+  50% {
+    font-size: 5em;
+  }
+
+  100% {
+    font-size: 3em;
+  }
+}
+
+.error p {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 0px;
+}
