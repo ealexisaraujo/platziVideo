@@ -5,7 +5,6 @@ import '../assets/styles/App.scss';
 
 const Layout = ({ children }) => (
   <div className='App'>
-    <Header />
     {children}
     <Footer />
   </div>
