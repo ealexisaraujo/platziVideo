@@ -1,16 +1,15 @@
 {
-  "homepage": "https://ealexisaraujo.github.io/platziVideo",
+  "homepage": "https://github.com/ealexisaraujo/platziVideo#readme",
   "name": "platziVideo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "start:dev": "nodemon src/server/index.js --exact babel-node"
   },
   "repository": {
     "type": "git",
@@ -22,11 +21,11 @@
   "bugs": {
     "url": "https://github.com/ealexisaraujo/platziVideo/issues"
   },
-  "homepage": "https://github.com/ealexisaraujo/platziVideo#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.6.2",
     "@storybook/html": "^5.1.11",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -54,6 +53,9 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
