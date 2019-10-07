@@ -30,15 +30,15 @@ const Player = props => {
 
 const mapStateToProps = state => {
   return {
-    playing: state.playing
+    playing: state.playing,
   };
 };
 
 const mapDispatchToProps = {
-  getVideoSource
+  getVideoSource,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Player);

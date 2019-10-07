@@ -9,13 +9,13 @@ import TwitterIcon from '../assets/static/twitter-icon.png';
 
 const Login = props => {
   const [form, setValues] = useState({
-    email: ''
+    email: '',
   });
 
   const handleInput = event => {
     setValues({
       ...form,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -76,10 +76,10 @@ const Login = props => {
 };
 
 const mapDispatchToProps = {
-  loginRequest
+  loginRequest,
 };
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Login);

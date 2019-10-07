@@ -17,7 +17,7 @@ const CarouselItem = props => {
       title,
       year,
       contentRating,
-      duration
+      duration,
     });
   };
   const handleDeleteFavorite = itemId => {
@@ -66,15 +66,15 @@ CarouselItem.propTypes = {
   year: PropTypes.number,
   contentRating: PropTypes.string,
   duration: PropTypes.number,
-  cover: PropTypes.string
+  cover: PropTypes.string,
 };
 
 const mapDispatchToProps = {
   setFavorite,
-  deleteFavorite
+  deleteFavorite,
 };
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CarouselItem);

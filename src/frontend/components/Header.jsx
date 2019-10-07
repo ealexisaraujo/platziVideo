@@ -14,7 +14,7 @@ const Header = props => {
 
   const HeaderClass = classNames('header', {
     isLogin,
-    isRegister
+    isRegister,
   });
 
   const handleLogout = () => {
@@ -60,15 +60,15 @@ const Header = props => {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
   };
 };
 
 const mapDispatchToProps = {
-  logoutRequest
+  logoutRequest,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Header);

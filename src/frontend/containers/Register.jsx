@@ -9,13 +9,13 @@ const Register = props => {
   const [form, setValues] = useState({
     email: '',
     name: '',
-    password: ''
+    password: '',
   });
 
   const handleInput = event => {
     setValues({
       ...form,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -63,10 +63,10 @@ const Register = props => {
 };
 
 const mapDispatchToProps = {
-  registerRequest
+  registerRequest,
 };
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Register);

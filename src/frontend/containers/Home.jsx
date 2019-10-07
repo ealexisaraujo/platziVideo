@@ -44,11 +44,11 @@ const mapStateToProps = state => {
   return {
     myList: state.myList,
     trends: state.trends,
-    originals: state.originals
+    originals: state.originals,
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(Home);
