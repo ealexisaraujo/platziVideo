@@ -14,6 +14,29 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  optimizations: {
+    splitChunks: {
+      chunks: 'async',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          name: 'vendors',
+          chuck: 'all',
+          reuseExistingChung: true,
+          priority: 1,
+          filename: 'assets/vendor.js',
+          enforce: true,
+          test(module, chunks) {
+            const name = module.nameForCondition && module.nameForCondition();
+            return chunks.some(
+              chuck =>
+                chuck.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name),
+            );
+          },
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
@@ -61,6 +84,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [autoprefixer()],
