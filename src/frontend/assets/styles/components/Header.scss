@@ -1,12 +1,11 @@
 $color_white: white;
 
-//uso de herencia
+
 .flex {
   display: flex;
   align-items: center;
 }
 
-//uso de mixin
 @mixin flex {
   display: flex;
   align-items: center;
@@ -16,10 +15,7 @@ $color_white: white;
 .header {
   background-color: #8F57FD;
   @include flex;
-  // @extend .flex;
-  // align-items: center;
   color: $color_white;
-  // display: flex;
   height: 100px;
   justify-content: space-between;
   top: 0px;
