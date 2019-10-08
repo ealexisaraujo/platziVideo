@@ -55,18 +55,29 @@ module.exports = {
         },
       },
       {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-        },
-      },
-      {
         test: /\.(s*)css$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
           'css-loader',
-          'sass-loader',
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `
+              @import "${path.resolve(
+                __dirname,
+                'src/frontend/assets/styles/Vars.scss',
+              )}";
+              @import "${path.resolve(
+                __dirname,
+                'src/frontend/assets/styles/Media.scss',
+              )}";
+              @import "${path.resolve(
+                __dirname,
+                'src/frontend/assets/styles/Base.scss',
+              )}";`,
+            },
+          },
         ],
       },
       {
