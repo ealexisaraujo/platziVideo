@@ -1,23 +1,26 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { createStore, compose } from 'redux';
 import reducer from './reducers';
-import initialState from './initialState';
 import App from './routes/App';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+if (typeof window !== 'undefined') {
+  let composeEnhacers;
+  if (process.env.NODE_ENV === 'production') composeEnhacers = compose;
+  else composeEnhacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const preloadedState = window.__PRELOADED_STATE__;
+  const store = createStore(reducer, preloadedState, composeEnhacers());
+  const history = createBrowserHistory();
 
-const store = createStore(reducer, initialState, composeEnhancers());
-const history = createBrowserHistory();
-
-ReactDom.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <App />
-    </Router>
-  </Provider>,
-  document.getElementById('app'),
-);
+  hydrate(
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>,
+    document.getElementById('app'),
+  );
+}
