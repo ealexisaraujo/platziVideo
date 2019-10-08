@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { registerRequest } from '../actions';
 import Header from '../components/Header';
-import { Link } from 'react-router-dom';
 import '../assets/styles/components/Register.scss';
 
 const Register = props => {

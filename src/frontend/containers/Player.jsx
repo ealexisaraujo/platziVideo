@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getVideoSource } from '../actions';
 import { Redirect } from 'react-router-dom';
+import { getVideoSource } from '../actions';
 import '../assets/styles/components/Player.scss';
 
 const Player = props => {
