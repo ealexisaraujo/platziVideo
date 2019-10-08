@@ -54,6 +54,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "asset-require-hook": "^1.2.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "dotenv": "^8.1.0",
