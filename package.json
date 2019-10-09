@@ -7,8 +7,7 @@
   "scripts": {
     "build": "webpack-cli --config webpack.config.js --colors",
     "start:prod": "node src/server/index.js",
-    "start:dev": "nodemon src/server/index.js --exact babel-node",
-    "lint:eslint:fix": "eslint src/frontend/**/*.js --fix"
+    "start:dev": "nodemon src/server/index.js --exact babel-node"
   },
   "repository": {
     "type": "git",

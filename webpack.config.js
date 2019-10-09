@@ -49,14 +49,17 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js|jsx)$/,
-      //   exclude: /node_modules/,
-      //   enforce: 'pre',
-      //   use: {
-      //     loader: 'eslint-loader',
-      //   },
-      // },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            emitWarning: true,
+          },
+        },
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -119,7 +122,7 @@ module.exports = {
           test: /\.js$|\.css$/,
           filename: '[path].gz',
         })
-      : false,
-    isProd ? new ManifestPlugin() : false,
+      : () => {},
+    isProd ? new ManifestPlugin() : () => {},
   ],
 };

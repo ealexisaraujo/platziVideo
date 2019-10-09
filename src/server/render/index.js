@@ -1,7 +1,11 @@
 import getManifest from '../getManifest';
-import {} from 'dotenv/config';
+const dotenv = require('dotenv');
 
-const files = getManifest();
+dotenv.config();
+
+const isProd = process.env.NODE_ENV === 'production';
+let files = false;
+if (process.env.NODE_ENV !== 'development') files = getManifest();
 
 const render = (html, preloadedState) => {
   return `
@@ -26,10 +30,10 @@ const render = (html, preloadedState) => {
             '\\u003c',
           )}
         </script>
-        <script "${
+        <script src="${
           isProd ? files['main.js'] : './assets/app.js'
         }" type="text/javascript"></script>
-        <script "${
+        <script src="${
           isProd ? files['vendors.js'] : './assets/vendor.js'
         }" type="text/javascript"></script>
     </body>
