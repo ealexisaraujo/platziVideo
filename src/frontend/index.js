@@ -23,7 +23,7 @@ if (typeof window !== 'undefined') {
   hydrate(
     <Provider store={store}>
       <Router history={history}>
-        <App />
+        <App isLogged={preloadedState.user.id} />
       </Router>
     </Provider>,
     document.getElementById('app'),
