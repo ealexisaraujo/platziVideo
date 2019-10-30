@@ -11,6 +11,7 @@ import userIcon from '../assets/static/user-icon.png';
 
 const Header = props => {
   const { user, isLogin, isRegister } = props;
+  const hasUser = Object.keys(user).length > 0;
 
   const HeaderClass = classNames('header', {
     isLogin,
@@ -18,7 +19,11 @@ const Header = props => {
   });
 
   const handleLogout = () => {
+    document.cookie = 'email=';
+    document.cookie = 'name=';
+    document.cookie = 'id=';
     props.logoutRequest({});
+    window.location.href = '/login';
   };
 
   return (
@@ -28,28 +33,28 @@ const Header = props => {
       </Link>
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          <img
-            src={Object.keys(user).length > 0 ? gravatar(user.email) : userIcon}
-            alt={user.email}
-          />
+          {hasUser ? (
+            <img src={gravatar(user.email)} alt={user.email} />
+          ) : (
+            <img src={userIcon} alt='' />
+          )}
           <p>Perfil</p>
         </div>
         <ul>
-          {Object.keys(user).length > 0 ? (
+          {hasUser ? (
             <li>
               <a href='/'>{user.name}</a>
             </li>
           ) : null}
-
-          {Object.keys(user).length > 0 ? (
+          {hasUser ? (
             <li>
               <a href='#logout' onClick={handleLogout}>
-                Cerrar Sesion
+                Cerrar Sesión
               </a>
             </li>
           ) : (
             <li>
-              <Link to='/login'>Iniciar Sesión</Link>
+              <Link to='/login'>Iniciar sesión</Link>
             </li>
           )}
         </ul>

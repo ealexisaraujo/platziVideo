@@ -10,8 +10,6 @@ import main from './routes/main';
 
 dotenv.config();
 
-const { config } = require('./config');
-
 const ENV = process.env.NODE_ENV;
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -52,7 +50,7 @@ app.post('/auth/sign-in', async (req, res, next) => {
   passport.authenticate('basic', async (error, data) => {
     try {
       if (error || !data) {
-        next(boom.unauthorized());
+        return next(boom.unauthorized());
       }
 
       req.login(data, { session: false }, async error => {
@@ -63,11 +61,10 @@ app.post('/auth/sign-in', async (req, res, next) => {
         const { token, ...user } = data;
 
         res.cookie('token', token, {
-          httpOnly: !config.dev,
-          secure: !config.dev,
+          httpOnly: !(ENV === 'development'),
+          secure: !(ENV === 'development'),
         });
-
-        res.status(200).json(user);
+        res.status(200).json(user.user);
       });
     } catch (error) {
       next(error);
@@ -77,15 +74,17 @@ app.post('/auth/sign-in', async (req, res, next) => {
 
 app.post('/auth/sign-up', async (req, res, next) => {
   const { body: user } = req;
-
   try {
-    await axios({
-      url: `${config.apiUrl}/api/auth/sign-up`,
+    const userData = await axios({
+      url: `${process.env.API_URL}/api/auth/sign-up`,
       method: 'post',
       data: user,
     });
-
-    res.status(201).json({ message: 'user created' });
+    res.status(201).json({
+      name: req.body.name,
+      email: req.body.email,
+      id: userData.data.data,
+    });
   } catch (error) {
     next(error);
   }
