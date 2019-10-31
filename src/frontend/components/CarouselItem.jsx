@@ -28,6 +28,7 @@ const CarouselItem = props => {
       year,
       contentRating,
       duration,
+      movieId: _id,
     });
   };
   const handleDeleteFavorite = itemId => {
