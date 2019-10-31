@@ -69,3 +69,12 @@ export const loginUser = ({ email, password }, redirecUrl) => {
       .catch(err => dispatch(setError(err)));
   };
 };
+
+export const postFavoriteMovie = ({ movieId, ...video }) => dispatch => {
+  axios
+    .post('/user-movies', { movieId })
+    .then(({ data: { data: userMovieId } }) =>
+      dispatch(setFavorite({ ...video, userMovieId })),
+    )
+    .catch(error => setError(error));
+};
