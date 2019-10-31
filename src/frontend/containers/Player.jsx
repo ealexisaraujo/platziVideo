@@ -24,7 +24,7 @@ const Player = props => {
       </div>
     </div>
   ) : (
-    <Redirect to='/404/' />
+    setTimeout(<Redirect to='/404/' />, 1000)
   );
 };
 
