@@ -32,18 +32,28 @@ const main = async (req, res, next) => {
       });
 
       let userMovies = await axios({
-        url: `${process.env.API_URL}/api/movies?userId=${id}`,
+        url: `${process.env.API_URL}/api/user-movies?userId=${id}`,
         headers: { Authorization: `Bearer ${token}` },
         method: 'get',
       });
 
       movieList = movieList.data.data;
       userMovies = userMovies.data.data;
+      userMovies = userMovies.map(movie => {
+        const movieData = movieList.find(mlist => mlist._id === movie.movieId);
+        if (movieData) {
+          return {
+            ...movieData,
+            userMovieId: movie._id,
+          };
+        }
+        return null;
+      });
 
       initialState = {
         user,
         playing: {},
-        myList: userMovies.filter(movie => movie._id === id),
+        myList: userMovies.filter(movie => movie),
         trends: movieList.filter(
           movie => movie.contentRating === 'PG' && movie.id,
         ),
