@@ -10,7 +10,7 @@ import reducer from '../reducers';
 const store = createStore(
   reducer,
   initialState,
-  compose(applyMiddleware(thunk))
+  compose(applyMiddleware(thunk)),
 );
 const history = createBrowserHistory();
 
