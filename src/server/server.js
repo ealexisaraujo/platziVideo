@@ -63,6 +63,7 @@ app.post('/auth/sign-in', async (req, res, next) => {
         res.cookie('token', token, {
           httpOnly: !(ENV === 'development'),
           secure: !(ENV === 'development'),
+          domain: 'videoplatzi.com',
         });
         res.status(200).json(user.user);
       });
@@ -109,6 +110,27 @@ app.post('/user-movies', async (req, res, next) => {
     }
 
     res.status(201).json(data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.delete('/user-movies/:userMovieId', async (req, res, next) => {
+  const { userMovieId } = req.params;
+  try {
+    const { token } = req.cookies;
+
+    const { data, status } = await axios({
+      url: `${process.env.API_URL}/api/user-movies/${userMovieId}`,
+      headers: { Authorization: `Bearer ${token}` },
+      method: 'delete',
+    });
+
+    if (status !== 200) {
+      return next(boom.badImplementation());
+    }
+
+    res.status(200).json(data);
   } catch (error) {
     next(error);
   }

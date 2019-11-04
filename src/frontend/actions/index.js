@@ -76,5 +76,12 @@ export const postFavoriteMovie = ({ movieId, ...video }) => dispatch => {
     .then(({ data: { data: userMovieId } }) =>
       dispatch(setFavorite({ ...video, userMovieId })),
     )
+    .catch(err => setError(err));
+};
+
+export const deleteFavoriteMovie = ({ movieId, id }) => dispatch => {
+  axios
+    .delete(`/user-movies/${movieId}`)
+    .then(() => dispatch(deleteFavorite(id)))
     .catch(error => setError(error));
 };
