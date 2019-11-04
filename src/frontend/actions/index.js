@@ -20,6 +20,11 @@ export const logoutRequest = payload => ({
   payload,
 });
 
+export const searchVideo = payload => ({
+  type: 'SEARCH_VIDEO',
+  payload,
+});
+
 export const setError = payload => ({
   type: 'SET_ERROR',
   payload,

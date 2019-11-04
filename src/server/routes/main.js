@@ -53,6 +53,7 @@ const main = async (req, res, next) => {
       initialState = {
         user,
         playing: {},
+        search: [],
         myList: userMovies.filter(movie => movie),
         trends: movieList.filter(
           movie => movie.contentRating === 'PG' && movie.id,
@@ -60,14 +61,17 @@ const main = async (req, res, next) => {
         originals: movieList.filter(
           movie => movie.contentRating === 'G' && movie.id,
         ),
+        content: movieList.filter(movie => movie && movie.id),
       };
     } catch (err) {
       initialState = {
         user: {},
         playing: {},
+        search: [],
         myList: [],
         trends: {},
         originals: {},
+        content: {},
       };
     }
     const isLogged = initialState.user.id;

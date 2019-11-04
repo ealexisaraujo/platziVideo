@@ -1,6 +1,7 @@
 export default {
   user: {},
   playing: {},
+  search: [],
   myList: [],
   trends: [
     {
