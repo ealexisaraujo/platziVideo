@@ -81,7 +81,7 @@
     "lodash": "^4.17.15",
     "md5": "^2.2.1",
     "nodemon": "^1.19.3",
-    "passport": "^0.4.0",
+    "passport": "^0.6.0",
     "passport-http": "^0.3.0",
     "passport-oauth": "^1.0.0",
     "passport-twitter": "^1.0.4",
