@@ -80,7 +80,7 @@
     "ignore-styles": "^5.0.1",
     "lodash": "^4.17.15",
     "md5": "^2.2.1",
-    "nodemon": "^1.19.3",
+    "nodemon": "^2.0.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-oauth": "^1.0.0",
@@ -96,11 +96,11 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "terser-webpack-plugin": "^2.3.6",
-    "webpack": "^4.41.0",
+    "webpack": "^5.0.0",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-manifest-plugin": "^2.2.0",
-    "snyk": "^1.316.1"
+    "snyk": "^1.685.0"
   },
   "snyk": true
 }
