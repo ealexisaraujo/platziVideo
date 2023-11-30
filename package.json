@@ -68,7 +68,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "classnames": "^2.2.6",
-    "compression-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^7.0.0",
     "cookie-parser": "^1.4.4",
     "css-loader": "^3.2.0",
     "dotenv": "^8.1.0",
@@ -95,12 +95,12 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "terser-webpack-plugin": "^2.3.6",
-    "webpack": "^4.41.0",
+    "terser-webpack-plugin": "^5.0.0",
+    "webpack": "^5.1.1",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-manifest-plugin": "^2.2.0",
-    "snyk": "^1.316.1"
+    "snyk": "^1.685.0"
   },
   "snyk": true
 }
